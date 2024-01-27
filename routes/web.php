@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +28,4 @@ Route::get('/posts', function()
     return '<h1>記事リスト</h1>';
 });
 
-Route::get('/posts/{id}', function($id){
-    //idyo is the key and $id is the value
-    return view('posts.post',['idyo' => $id]);
-});
+Route::get('/posts/{id}', [PostsController::class, 'show']);
