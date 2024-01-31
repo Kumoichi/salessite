@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,7 +30,7 @@ Route::get('/posts', function()
     return '<h1>記事リスト</h1>';
 });
 
-Route::get('/posts/{id}', function($id){
-    //idyo is the key and $id is the value
-    return view('posts.post',['idyo' => $id]);
-});
+Route::get('/posts/{id}', [PostsController::class, 'show']);
+
+//なんか最後に名前を付けると楽らしい。今はよくわからん。
+Route::get('/product', [ProductController::class, 'index'])->name('product.index');
