@@ -34,6 +34,11 @@ class ProductController extends Controller
         return redirect(route('product.index'));
     }
 
+    public function mainpage()
+    {
+        return view('main');
+    }
+
 }
 
 

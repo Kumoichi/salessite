@@ -3,6 +3,8 @@
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SelectedDateController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +37,9 @@ Route::get('/posts/{id}', [PostsController::class, 'show']);
 Route::get('/product', [ProductController::class, 'index'])->name('product.index');
 Route::get('/product/create', [ProductController::class, 'create'])->name('product.create');
 Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+Route::get('/', [ProductController::class, 'mainpage']);
+
+
+Route::get('/select-date', [SelectedDateController::class, 'showForm'])->name('show.date.form');
+Route::post('/save-date', [SelectedDateController::class, 'saveDate'])->name('save.date');
+
